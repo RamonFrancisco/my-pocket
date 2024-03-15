@@ -2,11 +2,11 @@ import { Client } from "pg";
 
 const query = async (queryObject) => {
   const client = new Client({
-    user: "dev_pg_user",
-    database: "dev_pg_db",
-    password: "dev_pg_pass",
-    host: "localhost",
-    port: 5432,
+    user: process.env.POSTGRES_USER,
+    database: process.env.POSTGRES_DB,
+    password: process.env.POSTGRES_PASSWORD,
+    host: process.env.POSTGRES_HOST,
+    port: Number(process.env.POSTGRES_PORT),
   });
 
   try {
